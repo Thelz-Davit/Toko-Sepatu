@@ -4,6 +4,7 @@
  */
 package Implements;
 
+import Pojo.Admin;
 import Pojo.Akun;
 import Pojo.Pegawai;
 import java.sql.Connection;
