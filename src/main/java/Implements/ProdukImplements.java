@@ -20,7 +20,7 @@ import utilities.ConnectionManager;
  *
  * @author DARARI
  */
-public class ProdukImplements implements ProdukService{
+public class ProdukImplements implements ProdukService {
 
     private ConnectionManager conMan;
     private Connection conn;
@@ -44,8 +44,8 @@ public class ProdukImplements implements ProdukService{
                 produk.setId(rs.getString("id"));
                 produk.setNamaProduk(rs.getString("nama_produk"));
                 produk.setKategori(rs.getString("Kategori"));
-                produk.setHarga(rs.getDouble("harga"));
                 produk.setQuantity(rs.getInt("quantity"));
+                produk.setHarga(rs.getDouble("harga"));
 
                 listProduk.add(produk);
             }
@@ -61,12 +61,12 @@ public class ProdukImplements implements ProdukService{
     @Override
     public Integer create(Produk object) {
         int result = 0;
-        String sql = "INSERT INTO produk(id, nama_produk, type, harga, quantity) "
-                + "VALUES('" + object.getId()+ "', "
-                + "'" + object.getNamaProduk()+ "', "
-                + "'" + object.getKategori()+ "', "
-                + "" + object.getHarga()+ ")"
-                + "" + object.getQuantity()+ ")";
+        String sql = "INSERT INTO produk(id, nama_produk, kategori, quantity, harga) "
+                + "VALUES('" + object.getId() + "', "
+                + "'" + object.getNamaProduk() + "', "
+                + "'" + object.getKategori() + "', "
+                + "" + object.getQuantity() + ","
+                + "" + object.getHarga() + ");";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -86,9 +86,9 @@ public class ProdukImplements implements ProdukService{
     public Integer update(Produk object) {
         int result = 0;
         String sql = "UPDATE produk SET nama_produk='" + object.getNamaProduk() + "',"
-                + " type='" + object.getKategori()+ "',"
-                + " harga=" + object.getHarga() + ","
-                + " quantity=" + object.getQuantity()+ ""
+                + " kategori='" + object.getKategori() + "',"
+                + " quantity=" + object.getQuantity() + ","
+                + " harga=" + object.getHarga() + ""
                 + " WHERE id='" + object.getId() + "'";
 
         conMan = new ConnectionManager();
@@ -105,8 +105,8 @@ public class ProdukImplements implements ProdukService{
         return result;
     }
 
-    
-    public Produk findById( String id) {
+    @Override
+    public Produk findById(String id) {
         Produk produk = null;
         String sql = "SELECT * FROM produk WHERE id=" + id + "";
 
@@ -133,7 +133,6 @@ public class ProdukImplements implements ProdukService{
         return produk;
     }
 
-    
     public Integer delete(String id) {
         int result = 0;
         String sql = "DELETE FROM produk WHERE id=" + id + "";

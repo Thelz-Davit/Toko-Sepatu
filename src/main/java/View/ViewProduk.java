@@ -70,7 +70,7 @@ public class ViewProduk extends javax.swing.JFrame {
     }
 
     private void loadData(Produk produk) {
-        Object[][] objectProduk = new Object[1][8];
+        Object[][] objectProduk = new Object[1][5];
 
         objectProduk[0][0] = produk.getId();
         objectProduk[0][1] = produk.getNamaProduk();
@@ -120,12 +120,10 @@ public class ViewProduk extends javax.swing.JFrame {
         lblController = new javax.swing.JLabel();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        Delete = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         lblQty = new javax.swing.JLabel();
         txtQty = new javax.swing.JTextField();
-        lblKategori = new javax.swing.JLabel();
-        txtKategori = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,7 +138,6 @@ public class ViewProduk extends javax.swing.JFrame {
 
         lblShoes.setText("SHOES");
 
-        txtSearch.setText("jTextField1");
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
@@ -167,7 +164,6 @@ public class ViewProduk extends javax.swing.JFrame {
 
         lblIdProduk.setText("jLabel2");
 
-        txtIdProduk.setText("jTextField2");
         txtIdProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdProdukActionPerformed(evt);
@@ -176,7 +172,11 @@ public class ViewProduk extends javax.swing.JFrame {
 
         lblNamaProduk.setText("jLabel3");
 
-        txtnamaProduk.setText("jTextField3");
+        txtnamaProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamaProdukActionPerformed(evt);
+            }
+        });
 
         lblCategory.setText("jLabel4");
 
@@ -193,28 +193,28 @@ public class ViewProduk extends javax.swing.JFrame {
 
         lblController.setText("jLabel6");
 
-        btnCreate.setText("jButton2");
+        btnCreate.setText("CREATE");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("jButton3");
+        btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        Delete.setText("jButton4");
-        Delete.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        btnClear.setText("jButton5");
+        btnClear.setText("CLEAR");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
@@ -223,11 +223,11 @@ public class ViewProduk extends javax.swing.JFrame {
 
         lblQty.setText("jLabel1");
 
-        txtQty.setText("jTextField1");
-
-        lblKategori.setText("jLabel1");
-
-        txtKategori.setText("jTextField1");
+        txtQty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -256,13 +256,10 @@ public class ViewProduk extends javax.swing.JFrame {
                             .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblController, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -270,7 +267,7 @@ public class ViewProduk extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnUpdate))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Delete)
+                        .addComponent(btnDelete)
                         .addGap(18, 18, 18)
                         .addComponent(btnClear)))
                 .addGap(68, 68, 68)
@@ -310,18 +307,15 @@ public class ViewProduk extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblController)
-                                    .addComponent(lblKategori))
+                                    .addComponent(lblQty))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(lblQty)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblHarga)
+                                .addGap(12, 12, 12)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Delete)
-                            .addComponent(btnClear)
-                            .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblHarga)
+                            .addComponent(btnDelete)
+                            .addComponent(btnClear))
                         .addGap(2, 2, 2)
                         .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(183, Short.MAX_VALUE))
@@ -367,7 +361,6 @@ public class ViewProduk extends javax.swing.JFrame {
 
         id = txtIdProduk.getText();
         nama = txtnamaProduk.getText();
-        kategori = txtKategori.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
 
@@ -400,7 +393,6 @@ public class ViewProduk extends javax.swing.JFrame {
 
         id = txtIdProduk.getText();
         nama = txtnamaProduk.getText();
-        kategori = txtKategori.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
 
@@ -419,7 +411,7 @@ public class ViewProduk extends javax.swing.JFrame {
         emptyField();
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         String id;
         produkService = new ProdukImplements();
@@ -433,7 +425,7 @@ public class ViewProduk extends javax.swing.JFrame {
             loadData();
             emptyField();
         }
-    }//GEN-LAST:event_DeleteActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
@@ -464,12 +456,20 @@ public class ViewProduk extends javax.swing.JFrame {
         
         txtIdProduk.setText(id+"");
         txtnamaProduk.setText(nama);
-        txtKategori.setText(kategori+"");
+        cmbProduk.setSelectedItem(kategori);
         txtQty.setText(quantity+"");
         txtHarga.setText(harga+"");
 
 
     }//GEN-LAST:event_tblProdukMouseClicked
+
+    private void txtnamaProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamaProdukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnamaProdukActionPerformed
+
+    private void txtQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,10 +507,10 @@ public class ViewProduk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Delete;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbProduk;
     private javax.swing.JPanel jPanel1;
@@ -519,14 +519,12 @@ public class ViewProduk extends javax.swing.JFrame {
     private javax.swing.JLabel lblController;
     private javax.swing.JLabel lblHarga;
     private javax.swing.JLabel lblIdProduk;
-    private javax.swing.JLabel lblKategori;
     private javax.swing.JLabel lblNamaProduk;
     private javax.swing.JLabel lblQty;
     private javax.swing.JLabel lblShoes;
     private javax.swing.JTable tblProduk;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtIdProduk;
-    private javax.swing.JTextField txtKategori;
     private javax.swing.JTextField txtQty;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtnamaProduk;
