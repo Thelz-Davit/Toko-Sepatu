@@ -11,6 +11,6 @@ import Repository.CrudRepository;
  *
  * @author DARARI
  */
-public interface ProdukService extends CrudRepository<Produk, Integer>{
+public interface ProdukService extends CrudRepository<Produk, String>{
     
 }

@@ -456,11 +456,17 @@ public class ViewProduk extends javax.swing.JFrame {
         int quantity;
 
         int row = tblProduk.getSelectedRow();
-        id = txtIdProduk.getText();
+        id = tblProduk.getValueAt(row, 0).toString();
         nama = tblProduk.getValueAt(row, 1).toString();
-        kategori = txtKategori.getText();
-        quantity = Integer.parseInt(tblProduk.getValueAt(row, 0).toString());
+        kategori = tblProduk.getValueAt(row, 2).toString();
+        quantity = Integer.parseInt(tblProduk.getValueAt(row, 3).toString());
         harga = Double.parseDouble(tblProduk.getValueAt(row, 4).toString());
+        
+        txtIdProduk.setText(id+"");
+        txtnamaProduk.setText(nama);
+        txtKategori.setText(kategori+"");
+        txtQty.setText(quantity+"");
+        txtHarga.setText(harga+"");
 
 
     }//GEN-LAST:event_tblProdukMouseClicked
