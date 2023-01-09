@@ -9,7 +9,7 @@ package Pojo;
  * @author DARARI
  */
 public class Admin {
-      private Integer id;
+    private Integer id;
     private String namaDepan;
     private String namaBelakang;
     private boolean loginStatus;

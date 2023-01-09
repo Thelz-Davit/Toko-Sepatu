@@ -4,8 +4,8 @@
  */
 package Implements;
 
-import Pojo.Produk;
-import Service.ProdukService;
+import Pojo.Transaksi;
+import Service.TransaksiService;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,17 +20,16 @@ import utilities.ConnectionManager;
  *
  * @author DARARI
  */
-public class ProdukImplements implements ProdukService{
-
+public class TransaksiImplements implements TransaksiService{
     private ConnectionManager conMan;
     private Connection conn;
     Statement stmt;
     ResultSet rs;
 
     @Override
-    public List<Produk> findAll() {
-        List<Produk> listProduk = new ArrayList<>();
-        String sql = "SELECT * FROM produk";
+    public List<Transaksi> findAll() {
+        List<Transaksi> listTransaksi = new ArrayList<>();
+        String sql = "SELECT * FROM transaksi";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -40,33 +39,31 @@ public class ProdukImplements implements ProdukService{
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                Produk produk = new Produk();
-                produk.setId(rs.getString("id"));
-                produk.setNamaProduk(rs.getString("nama_produk"));
-                produk.setKategori(rs.getString("kategori"));
-                produk.setHarga(rs.getDouble("harga"));
-                produk.setQuantity(rs.getInt("quantity"));
+                Transaksi transaksi = new Transaksi();
+                transaksi.setNoTransaksi(rs.getString("no_transaksi"));
+                transaksi.setTglTransaksi(rs.getString("tgl_transaksi"));
+                transaksi.setTotalTransaksi(rs.getDouble("total_transaksi"));
+                transaksi.setNamaPelanggan(rs.getString("nama_pelanggan"));
 
-                listProduk.add(produk);
+                listTransaksi.add(transaksi);
             }
             conMan.disconnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukImplements.class.getName())
+            Logger.getLogger(TransaksiImplements.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
 
-        return listProduk;
+        return listTransaksi;
     }
 
     @Override
-    public Integer create(Produk object) {
+    public Integer create(Transaksi object) {
         int result = 0;
-        String sql = "INSERT INTO produk(id, nama_produk, kategori, harga, quantity) "
-                + "VALUES('" + object.getId()+ "', "
-                + "'" + object.getNamaProduk()+ "', "
-                + "'" + object.getKategori()+ "', "
-                + "" + object.getHarga()+ ")"
-                + "" + object.getQuantity()+ ")";
+        String sql = "INSERT INTO transaksi(no_transaksi, tgl_transaksi, total_transaksi, nama_pelanggan) "
+                + "VALUES('" + object.getNoTransaksi()+ "', "
+                + "'" + object.getTglTransaksi()+ "', "
+                + "'" + object.getTotalTransaksi()+ "', "
+                + "'" + object.getNamaPelanggan()+ "')";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -76,20 +73,19 @@ public class ProdukImplements implements ProdukService{
             stmt.executeUpdate(sql);
             conMan.disconnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukImplements.class.getName())
+            Logger.getLogger(TransaksiImplements.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
         return result;
     }
 
     @Override
-    public Integer update(Produk object) {
+    public Integer update(Transaksi object) {
         int result = 0;
-        String sql = "UPDATE produk SET nama_produk='" + object.getNamaProduk() + "',"
-                + " kategori='" + object.getKategori()+ "',"
-                + " harga=" + object.getHarga() + ","
-                + " quantity=" + object.getQuantity()+ ""
-                + " WHERE id='" + object.getId() + "'";
+        String sql = "UPDATE transaksi SET tgl_transaksi='" + object.getTglTransaksi()+ "',"
+                + " total_transaksi='" + object.getTotalTransaksi()+ "',"
+                + " nama_pelanggan=" + object.getNamaPelanggan()+ ","
+                + " WHERE no_transaksi='" + object.getNoTransaksi()+ "'";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -99,16 +95,16 @@ public class ProdukImplements implements ProdukService{
             result = stmt.executeUpdate(sql);
             conMan.disconnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukImplements.class.getName()).
+            Logger.getLogger(TransaksiImplements.class.getName()).
                     log(Level.SEVERE, null, ex);
         }
         return result;
     }
 
     @Override
-    public Produk findById(int id) {
-        Produk produk = null;
-        String sql = "SELECT * FROM produk WHERE id=" + id + "";
+    public Transaksi findById(int id) {
+        Transaksi transaksi = null;
+        String sql = "SELECT * FROM transaksi WHERE no_transaksi=" + id + "";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -118,25 +114,24 @@ public class ProdukImplements implements ProdukService{
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                produk = new Produk();
-                produk.setId(rs.getString("id"));
-                produk.setNamaProduk(rs.getString("nama_produk"));
-                produk.setKategori(rs.getString("kategori"));
-                produk.setHarga(rs.getDouble("harga"));
-                produk.setQuantity(rs.getInt("quantity"));
+                transaksi = new Transaksi();
+                transaksi.setNoTransaksi(rs.getString("no_transaksi"));
+                transaksi.setTglTransaksi(rs.getString("tgl_transaksi"));
+                transaksi.setTotalTransaksi(rs.getDouble("total_transaksi"));
+                transaksi.setNamaPelanggan(rs.getString("nama_pelanggan"));
             }
             conMan.disconnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukImplements.class.getName())
+            Logger.getLogger(TransaksiImplements.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
-        return produk;
+        return transaksi;
     }
 
     @Override
     public Integer delete(int id) {
         int result = 0;
-        String sql = "DELETE FROM produk WHERE id=" + id + "";
+        String sql = "DELETE FROM transaksi WHERE no_pelanggan=" + id + "";
 
         conMan = new ConnectionManager();
         conn = conMan.connect();
@@ -146,10 +141,11 @@ public class ProdukImplements implements ProdukService{
             result = stmt.executeUpdate(sql);
             conMan.disconnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdukImplements.class.getName())
+            Logger.getLogger(TransaksiImplements.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
         return result;
     }
 
 }
+

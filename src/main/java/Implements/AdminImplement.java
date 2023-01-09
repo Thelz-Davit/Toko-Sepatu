@@ -4,8 +4,9 @@
  */
 package Implements;
 
+import Pojo.Admin;
 import Pojo.Akun;
-import Pojo.Pegawai;
+import Service.AdminService;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,32 +14,29 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utilities.ConnectionManager;
-import Service.AkunService;
 
 /**
  *
- * @author DARARI
+ * @author user
  */
-public class AkunImplements implements AkunService{
-     private ConnectionManager conMan;
+public class AdminImplement implements AdminService {
+    private ConnectionManager conMan;
     private Connection conn;
     Statement stmt;
     ResultSet rs;
     
-   
-    
-
     @Override
-    public Pegawai login(String username, String password) {
-       Pegawai pegawai = null;
+    public Admin login(String username, String password) {
+        Admin admin = null;
         Akun akun = null;
-        String sql = "SELECT pw.id, pw.nama, pw.umur,pw.jenis_kelamin,pw.departemen,pw.nomor_telepon,pw.alamat, "
-                + "ak.id, ak.email, ak.username,ak.password, ak.level "
-                + "FROM pegawai pw, akun ak "
-                + "WHERE pw.id_akun = ak.id_akun "
+        String sql = "SELECT ad.id, ad.nama_depan, ad.nama_belakang, "
+                + "ak.id_akun, ak.email, ak.username, ak.level "
+                + "FROM admin ad, akun ak "
+                + "WHERE ad.id_akun = ak.id_akun "
                 + "AND ak.username = '"+username+"' "
                 + "AND ak.password = '"+password+"'";
-         conMan = new ConnectionManager();
+        
+        conMan = new ConnectionManager();
         conn = conMan.connect();
         
         try {
@@ -46,31 +44,23 @@ public class AkunImplements implements AkunService{
             rs = stmt.executeQuery(sql);
             
             while (rs.next()) {
-                pegawai = new Pegawai();
-                pegawai.setId(rs.getInt("id"));
-                pegawai.setNama(rs.getString("nama"));
-                pegawai.setUmur(rs.getInt("umur"));
-                pegawai.setJenisKelamin(rs.getString("jenis_kelamin"));
-                pegawai.setNomorTelepon(rs.getString("nomor_telepon"));
-                pegawai.setAlamat(rs.getString("alamat"));
+                admin = new Admin();
+                admin.setId(rs.getInt("id"));
+                admin.setNamaDepan(rs.getString("nama_depan"));
+                admin.setNamaBelakang(rs.getString("nama_belakang"));
                 akun = new Akun();
-                akun.setId(rs.getInt("id"));
+                akun.setId(rs.getInt("id_akun"));
                 akun.setEmail(rs.getString("email"));
                 akun.setUsername(rs.getString("username"));
-                akun.setPassword(rs.getString("password"));
                 akun.setLevel(rs.getString("level"));
-                pegawai.setAkun(akun);
+                admin.setAkun(akun);
             }
             conMan.disconnect();
         } catch (SQLException ex) {
             Logger.getLogger(PegawaiImplement.class.getName())
                     .log(Level.SEVERE, null, ex);
         }
-        return pegawai;
+        return admin;
     }
     
 }
-   
-        
-
-

@@ -11,7 +11,7 @@ package Pojo;
 public class Produk {
     private String id;
     private String namaProduk;
-    private String type;
+    private String kategori;
     private double harga;
     private int quantity;
 
@@ -31,12 +31,12 @@ public class Produk {
         this.namaProduk = namaProduk;
     }
 
-    public String getType() {
-        return type;
+    public String getKategori() {
+        return kategori;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 
     public double getHarga() {
