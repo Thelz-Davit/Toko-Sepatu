@@ -4,19 +4,95 @@
  */
 package View;
 
+import Implements.ProdukImplements;
+import Implements.TransakiImplements;
+import Pojo.Produk;
+import Pojo.Transaksi;
+import java.util.ArrayList;
+import java.util.List;
+import Service.ProdukService;
+import Service.TransaksiService;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
  */
 public class ViewTransaksi extends javax.swing.JFrame {
-
+    ProdukService produkService;
+    TransaksiService transaksiService;
+    
     /**
      * Creates new form ViewTransaksi
      */
     public ViewTransaksi() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        loadDataProduk();
+        
     }
 
+    private void emptyField() {
+        txtIDSepatu.setText("");
+        txtKategori.setText("");
+        txtQuantity.setText("");
+        txtHarga.setText("");
+        btnCreate.setEnabled(true);
+        tblKeranjang.clearSelection();
+        
+    }
+    
+    
+    private void loadDataProduk() {
+        produkService = new ProdukImplements();
+        List<Produk> listProduk = new ArrayList<>();
+        listProduk = produkService.findAll();
+        Object[][] objectProduk = new Object[listProduk.size()][5];
+
+        int counter = 0;
+        for (Produk produk : listProduk) {
+            objectProduk[counter][0] = produk.getId();
+            objectProduk[counter][1] = produk.getNamaProduk();
+            objectProduk[counter][2] = produk.getKategori();
+            objectProduk[counter][3] = produk.getQuantity();
+            objectProduk[counter][4] = produk.getHarga();
+
+            counter++;
+        }
+        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
+                objectProduk,
+                new String[]{
+                    "ID", "NamaProduk", "Kategori", " Quantity", "Harga"
+                }
+        ));
+    }
+    
+    public void setTable(Transaksi transaksi){
+        DefaultTableModel dtm =  (DefaultTableModel)tblKeranjang.getModel();
+        String[] kolomKeranjang = {"ID Produk","Nama Sepatu","Kuantitas","Harga"};
+        String[] data = new String[6];
+        data[0] = txtIDSepatu.getText();
+        data[1] = txtNamaSepatu.getText();
+        data[2] = txtQuantity.getText();
+        data[3] = txtHarga.getText();
+        dtm.addRow(data);
+        
+    }
+    
+    public void delTable(int row){
+        DefaultTableModel dtm = (DefaultTableModel)tblKeranjang.getModel();
+        if (tblKeranjang.isRowSelected(row)) {
+            dtm.removeRow(row);
+        }
+    }
+    
+    public void updateTable(int updatedQty){
+        DefaultTableModel dtm =  (DefaultTableModel)tblKeranjang.getModel();
+        tblKeranjang.getSelectedRow();
+        tblKeranjang.getSelectedColumn();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,19 +116,18 @@ public class ViewTransaksi extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        txtNamaSepatu = new javax.swing.JTextField();
+        txtKategori = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtHarga = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtNamaSepatu = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,15 +146,17 @@ public class ViewTransaksi extends javax.swing.JFrame {
         tblKeranjang.setForeground(new java.awt.Color(0, 0, 0));
         tblKeranjang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Produk", "Nama Produk", "Kuantitas", "Harga"
             }
         ));
+        tblKeranjang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblKeranjangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblKeranjang);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 300, 460));
@@ -98,6 +175,11 @@ public class ViewTransaksi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblProduct);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 300, 550));
@@ -110,6 +192,11 @@ public class ViewTransaksi extends javax.swing.JFrame {
         btnConfirm.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Konfirmasi");
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, 260, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 630, 300, 60));
@@ -119,6 +206,7 @@ public class ViewTransaksi extends javax.swing.JFrame {
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtIDSepatu.setEditable(false);
         txtIDSepatu.setBackground(new java.awt.Color(255, 255, 255));
         txtIDSepatu.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtIDSepatu.setForeground(new java.awt.Color(0, 0, 0));
@@ -135,25 +223,34 @@ public class ViewTransaksi extends javax.swing.JFrame {
         btnDelete.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, -1, -1));
 
         btnCreate.setBackground(new java.awt.Color(0, 0, 0));
         btnCreate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, -1, -1));
 
         btnClear.setBackground(new java.awt.Color(0, 0, 0));
         btnClear.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, -1, -1));
-
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
-        btnUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
-        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -167,11 +264,12 @@ public class ViewTransaksi extends javax.swing.JFrame {
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 270, 30));
 
-        txtNamaSepatu.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaSepatu.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtNamaSepatu.setForeground(new java.awt.Color(0, 0, 0));
-        txtNamaSepatu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel3.add(txtNamaSepatu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 270, 30));
+        txtKategori.setEditable(false);
+        txtKategori.setBackground(new java.awt.Color(255, 255, 255));
+        txtKategori.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtKategori.setForeground(new java.awt.Color(0, 0, 0));
+        txtKategori.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txtKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 270, 30));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -191,6 +289,7 @@ public class ViewTransaksi extends javax.swing.JFrame {
         jLabel7.setText("HARGA");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
+        txtHarga.setEditable(false);
         txtHarga.setBackground(new java.awt.Color(255, 255, 255));
         txtHarga.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtHarga.setForeground(new java.awt.Color(0, 0, 0));
@@ -209,11 +308,12 @@ public class ViewTransaksi extends javax.swing.JFrame {
         txtQuantity.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel3.add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 270, 30));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 150, 40));
+        txtNamaSepatu.setEditable(false);
+        txtNamaSepatu.setBackground(new java.awt.Color(255, 255, 255));
+        txtNamaSepatu.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtNamaSepatu.setForeground(new java.awt.Color(0, 0, 0));
+        txtNamaSepatu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel3.add(txtNamaSepatu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 270, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 310, 510));
 
@@ -223,25 +323,145 @@ public class ViewTransaksi extends javax.swing.JFrame {
         jLabel2.setText("TRANSACTION");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("BACK");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        new MainMenu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
+        // TODO add your handling code here:
+        String id, nama, kategori;
+        double harga;
+        int quantity;
+
+        int row = tblProduct.getSelectedRow();
+        id = tblProduct.getValueAt(row, 0).toString();
+        nama = tblProduct.getValueAt(row, 1).toString();
+        kategori = tblProduct.getValueAt(row, 2).toString();
+        quantity = Integer.parseInt(tblProduct.getValueAt(row, 3).toString());
+        harga = Double.parseDouble(tblProduct.getValueAt(row, 4).toString());
+
+        txtIDSepatu.setText(id + "");
+        txtNamaSepatu.setText(nama+"");
+        txtKategori.setText(kategori+"");
+        txtQuantity.setText(quantity + "");
+        txtHarga.setText(harga + "");
+        
+    }//GEN-LAST:event_tblProductMouseClicked
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        Transaksi transaksi = new Transaksi();
+        int row = tblProduct.getSelectedRow();
+        int stok = Integer.parseInt(tblProduct.getValueAt(row, 3).toString());
+        int qty = Integer.parseInt(txtQuantity.getText());
+        int selisihStok;
+        String id = txtIDSepatu.getText();
+        if (qty <= stok) {
+            selisihStok = stok - qty;
+            produkService.updateQty(selisihStok, id);
+            loadDataProduk();
+            setTable(transaksi); 
+            emptyField();
+        }else{
+            JOptionPane.showMessageDialog(null, "Invalid Quantity");
+        }
+               
+        
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+        String id;
+        double harga;
+        int quantity;
+        transaksiService = new TransakiImplements();
+        int row = tblKeranjang.getRowCount();
+        int countid = transaksiService.countTransaksi();
+        LocalDate tdayDate = LocalDate.now();
+        
+        if (row == 0 ) {
+            JOptionPane.showMessageDialog(null, "Table is Empty");
+        }else {
+            for (int i = 0; i < row; i++) {
+                
+
+                id = txtIDSepatu.getText();
+    //            nama = txtnamaProduk.getText();
+                quantity = Integer.parseInt(tblKeranjang.getValueAt(i, 2).toString());
+                harga = Double.parseDouble(tblKeranjang.getValueAt(i, 3).toString());
+                Double total = harga * quantity;
+
+                Transaksi transaksi = new Transaksi();
+                transaksi.setIdTransaksi(countid+1);
+                transaksi.setIdProduk((String) tblKeranjang.getValueAt(i, 0));
+                transaksi.setHarga(harga);
+                transaksi.setQtyBeli(quantity);
+                transaksi.setTotalTransaksi(total);
+                transaksi.setTglTransaksi(tdayDate.toString());
+                transaksiService.create(transaksi);
+                JOptionPane.showMessageDialog(null, "Pembelian Berhasil");
+                emptyField();
+            }
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        Transaksi transaksi = new Transaksi();
+        int row = tblKeranjang.getSelectedRow();
+        int qty = Integer.parseInt(txtQuantity.getText());
+        int menambahStok =0;
+        String id = txtIDSepatu.getText();
+        int stok = produkService.findQty(id);
+        menambahStok += stok + qty;
+        produkService.updateQty(menambahStok, id);
+        delTable(row);
+        loadDataProduk();
+        emptyField();
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void tblKeranjangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKeranjangMouseClicked
+        // TODO add your handling code here:
+        String id, nama;
+        double harga;
+        int quantity;
+
+        int row = tblKeranjang.getSelectedRow();
+        id = tblKeranjang.getValueAt(row, 0).toString();
+        nama = tblKeranjang.getValueAt(row, 1).toString();
+        quantity = Integer.parseInt(tblKeranjang.getValueAt(row, 2).toString());
+        harga = Double.parseDouble(tblKeranjang.getValueAt(row, 3).toString());
+
+        txtIDSepatu.setText(id + "");
+        txtNamaSepatu.setText(nama+"");
+        txtQuantity.setText(quantity + "");
+        txtHarga.setText(harga + "");
+        btnCreate.setEnabled(false);
+    }//GEN-LAST:event_tblKeranjangMouseClicked
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        emptyField();
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,13 +499,11 @@ public class ViewTransaksi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -304,6 +522,7 @@ public class ViewTransaksi extends javax.swing.JFrame {
     private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtIDSepatu;
+    private javax.swing.JTextField txtKategori;
     private javax.swing.JTextField txtNamaSepatu;
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
