@@ -38,9 +38,6 @@ public class Produk {
     public void setKategori(String Kategori) {
         this.Kategori = Kategori;
     }
-
-   
-
     public double getHarga() {
         return harga;
     }

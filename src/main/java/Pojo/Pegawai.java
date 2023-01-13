@@ -45,7 +45,7 @@ public class Pegawai {
     public void setStatus(boolean Status) {
         this.Status = Status;
     }
-    
-    
-}
+
+
+   }
 

@@ -49,7 +49,6 @@ public class Transaksi {
     public void setHarga(double harga) {
         this.harga = harga;
     }
-
     public double getTotalTransaksi() {
         return totalTransaksi;
     }
@@ -64,7 +63,5 @@ public class Transaksi {
 
     public void setTglTransaksi(String TglTransaksi) {
         this.TglTransaksi = TglTransaksi;
-    }
-    
-    
+    }  
 }

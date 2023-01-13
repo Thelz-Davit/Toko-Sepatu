@@ -46,7 +46,6 @@ public class ProdukImplements implements ProdukService {
                 produk.setKategori(rs.getString("Kategori"));
                 produk.setQuantity(rs.getInt("quantity"));
                 produk.setHarga(rs.getDouble("harga"));
-
                 listProduk.add(produk);
             }
             conMan.disconnect();

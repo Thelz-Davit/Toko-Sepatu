@@ -14,7 +14,7 @@ public class Akun {
     private String username;
     private String password;
     private String level;
-
+    
     public Akun() {
     }
 
@@ -57,6 +57,5 @@ public class Akun {
     public void setLevel(String level) {
         this.level = level;
     }
-    
-    
+     
 }

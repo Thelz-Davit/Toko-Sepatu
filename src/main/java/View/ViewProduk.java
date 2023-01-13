@@ -216,6 +216,11 @@ public class ViewProduk extends javax.swing.JFrame {
         cmbProduk.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         cmbProduk.setForeground(new java.awt.Color(0, 0, 0));
         cmbProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Converse", "Heels", "Sneakers", "Boots", "Sandals" }));
+        cmbProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProdukActionPerformed(evt);
+            }
+        });
         jPanel2.add(cmbProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         lblCategory.setBackground(new java.awt.Color(255, 255, 255));
@@ -376,7 +381,6 @@ public class ViewProduk extends javax.swing.JFrame {
         nama = txtnamaProduk.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
-
         kategori = cmbProduk.getSelectedItem().toString();
 
         Produk produk = new Produk();
@@ -408,7 +412,6 @@ public class ViewProduk extends javax.swing.JFrame {
         nama = txtnamaProduk.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
-
         kategori = cmbProduk.getSelectedItem().toString();
 
         Produk produk = new Produk();
@@ -492,6 +495,10 @@ public class ViewProduk extends javax.swing.JFrame {
     private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSearch1ActionPerformed
+
+    private void cmbProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProdukActionPerformed
 
     /**
      * @param args the command line arguments
