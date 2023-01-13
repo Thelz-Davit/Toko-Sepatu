@@ -10,4 +10,5 @@ package Repository;
  */
 public interface AkunRepository<T, ID> {
     T login(String username, String password);
+    ID checkLevel(String id);
 }
