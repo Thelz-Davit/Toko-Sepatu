@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author Kelompok Toko Sepatu
  */
 public class ConnectionManager {
-    private String DB_URL = "jdbc:mysql://localhost:3306/toko_sepatu";
+    private String DB_URL = "jdbc:mysql://localhost:3310/toko_sepatu";
     private String username;
     private String password;
     private Connection connection;

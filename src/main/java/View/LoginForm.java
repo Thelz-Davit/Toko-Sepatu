@@ -161,7 +161,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-        
+        dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -180,7 +180,7 @@ public class LoginForm extends javax.swing.JFrame {
             pegawai.setStatus(true);
             JOptionPane.showMessageDialog(null, "Login succesful!");
 
-            new ViewTransaksi().setVisible(true);
+            new MainMenu().setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Username and Password is not correct!");

@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -33,12 +35,12 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnProduct = new javax.swing.JButton();
+        btnTransaction = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
         btnRepor = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
-        btnAlert = new javax.swing.JButton();
+        btnProduct = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
@@ -58,8 +60,8 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("ALERT");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, -1, -1));
+        jLabel7.setText("Product");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 640, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
@@ -85,16 +87,16 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel5.setText("HISTORY");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
 
-        btnProduct.setBackground(new java.awt.Color(255, 255, 255));
-        btnProduct.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        btnProduct.setForeground(new java.awt.Color(0, 0, 0));
-        btnProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        btnProduct.addActionListener(new java.awt.event.ActionListener() {
+        btnTransaction.setBackground(new java.awt.Color(255, 255, 255));
+        btnTransaction.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnTransaction.setForeground(new java.awt.Color(0, 0, 0));
+        btnTransaction.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnTransaction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductActionPerformed(evt);
+                btnTransactionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 200, 250));
+        jPanel1.add(btnTransaction, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 200, 250));
 
         btnHistory.setBackground(new java.awt.Color(255, 255, 255));
         btnHistory.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -140,16 +142,16 @@ public class MainMenu extends javax.swing.JFrame {
         });
         jPanel1.add(btnSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 200, 250));
 
-        btnAlert.setBackground(new java.awt.Color(255, 255, 255));
-        btnAlert.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        btnAlert.setForeground(new java.awt.Color(0, 0, 0));
-        btnAlert.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        btnAlert.addActionListener(new java.awt.event.ActionListener() {
+        btnProduct.setBackground(new java.awt.Color(255, 255, 255));
+        btnProduct.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnProduct.setForeground(new java.awt.Color(0, 0, 0));
+        btnProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlertActionPerformed(evt);
+                btnProductActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 200, 250));
+        jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 200, 250));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
@@ -179,11 +181,11 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
+    private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
         // TODO add your handling code here:
          new ViewTransaksi().setVisible(true);
          dispose();
-    }//GEN-LAST:event_btnProductActionPerformed
+    }//GEN-LAST:event_btnTransactionActionPerformed
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
@@ -192,24 +194,24 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporActionPerformed
         // TODO add your handling code here:
-        new Report().setVisible(true);
-        dispose();
+        JOptionPane.showMessageDialog(null, "TBD");
     }//GEN-LAST:event_btnReporActionPerformed
 
     private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "TBD");
     }//GEN-LAST:event_btnAccountActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
         // TODO add your handling code here:
-        
+        JOptionPane.showMessageDialog(null, "TBD");
     }//GEN-LAST:event_btnSettingsActionPerformed
 
-    private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
+    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
         new ViewProduk().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnAlertActionPerformed
+    }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -255,12 +257,12 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
-    private javax.swing.JButton btnAlert;
     private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnRepor;
     private javax.swing.JButton btnSettings;
+    private javax.swing.JButton btnTransaction;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

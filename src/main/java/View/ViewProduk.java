@@ -106,45 +106,54 @@ public class ViewProduk extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         lblShoes = new javax.swing.JLabel();
-        txtSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProduk = new javax.swing.JTable();
-        lblIdProduk = new javax.swing.JLabel();
-        txtIdProduk = new javax.swing.JTextField();
-        lblNamaProduk = new javax.swing.JLabel();
-        txtnamaProduk = new javax.swing.JTextField();
-        lblCategory = new javax.swing.JLabel();
-        cmbProduk = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
         lblHarga = new javax.swing.JLabel();
         txtHarga = new javax.swing.JTextField();
-        lblController = new javax.swing.JLabel();
-        btnCreate = new javax.swing.JButton();
+        txtQty = new javax.swing.JTextField();
+        lblQty = new javax.swing.JLabel();
+        cmbProduk = new javax.swing.JComboBox<>();
+        lblCategory = new javax.swing.JLabel();
+        txtnamaProduk = new javax.swing.JTextField();
+        lblNamaProduk = new javax.swing.JLabel();
+        txtIdProduk = new javax.swing.JTextField();
+        lblIdProduk = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
-        lblQty = new javax.swing.JLabel();
-        txtQty = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch1 = new javax.swing.JButton();
+        lblController = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 90, -1));
 
-        lblShoes.setText("SHOES");
+        lblShoes.setBackground(new java.awt.Color(255, 255, 255));
+        lblShoes.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        lblShoes.setForeground(new java.awt.Color(0, 0, 0));
+        lblShoes.setText("PRODUCT DASHBOARD");
+        jPanel1.add(lblShoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
-
+        tblProduk.setBackground(new java.awt.Color(255, 255, 255));
+        tblProduk.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblProduk.setForeground(new java.awt.Color(0, 0, 0));
         tblProduk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -163,196 +172,185 @@ public class ViewProduk extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblProduk);
 
-        lblIdProduk.setText("ID");
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 578, 480));
 
-        txtIdProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdProdukActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNamaProduk.setText("Nama Produk");
-
-        txtnamaProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnamaProdukActionPerformed(evt);
-            }
-        });
-
-        lblCategory.setText("Kategori");
-
-        cmbProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Converse", "Heels", "Sneakers", "Boots", "Sandals" }));
-
+        lblHarga.setBackground(new java.awt.Color(255, 255, 255));
+        lblHarga.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblHarga.setForeground(new java.awt.Color(0, 0, 0));
         lblHarga.setText("Harga");
+        jPanel2.add(lblHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 120, -1));
 
+        txtHarga.setBackground(new java.awt.Color(255, 255, 255));
+        txtHarga.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtHarga.setForeground(new java.awt.Color(0, 0, 0));
+        txtHarga.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtHarga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHargaActionPerformed(evt);
             }
         });
+        jPanel2.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 150, -1));
 
-        lblController.setText("CONTROLLER");
-
-        btnCreate.setText("CREATE");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        txtQty.setBackground(new java.awt.Color(255, 255, 255));
+        txtQty.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtQty.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtQty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                txtQtyActionPerformed(evt);
             }
         });
+        jPanel2.add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 150, -1));
 
+        lblQty.setBackground(new java.awt.Color(255, 255, 255));
+        lblQty.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblQty.setForeground(new java.awt.Color(0, 0, 0));
+        lblQty.setText("QTY");
+        jPanel2.add(lblQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 120, -1));
+
+        cmbProduk.setBackground(new java.awt.Color(255, 255, 255));
+        cmbProduk.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        cmbProduk.setForeground(new java.awt.Color(0, 0, 0));
+        cmbProduk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Converse", "Heels", "Sneakers", "Boots", "Sandals" }));
+        cmbProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProdukActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmbProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+        lblCategory.setBackground(new java.awt.Color(255, 255, 255));
+        lblCategory.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(0, 0, 0));
+        lblCategory.setText("Kategori");
+        jPanel2.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 120, -1));
+
+        txtnamaProduk.setBackground(new java.awt.Color(255, 255, 255));
+        txtnamaProduk.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtnamaProduk.setForeground(new java.awt.Color(0, 0, 0));
+        txtnamaProduk.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtnamaProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamaProdukActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtnamaProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 160, -1));
+
+        lblNamaProduk.setBackground(new java.awt.Color(255, 255, 255));
+        lblNamaProduk.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblNamaProduk.setForeground(new java.awt.Color(0, 0, 0));
+        lblNamaProduk.setText("Nama Produk");
+        jPanel2.add(lblNamaProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 120, -1));
+
+        txtIdProduk.setBackground(new java.awt.Color(255, 255, 255));
+        txtIdProduk.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtIdProduk.setForeground(new java.awt.Color(0, 0, 0));
+        txtIdProduk.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtIdProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProdukActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtIdProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, -1));
+
+        lblIdProduk.setBackground(new java.awt.Color(255, 255, 255));
+        lblIdProduk.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblIdProduk.setForeground(new java.awt.Color(0, 0, 0));
+        lblIdProduk.setText("ID");
+        jPanel2.add(lblIdProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, -1));
+
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
+        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
+        btnCreate.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setText("CREATE");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+
+        btnDelete.setBackground(new java.awt.Color(153, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
+        btnClear.setBackground(new java.awt.Color(0, 0, 0));
+        btnClear.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("CLEAR");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
+        jPanel2.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
 
-        lblQty.setText("QTY");
-
-        txtQty.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtQtyActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setText("SEARCH");
+        btnSearch.setBackground(new java.awt.Color(255, 255, 255));
+        btnSearch.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(0, 0, 0));
+        btnSearch.setText("CRUD");
+        btnSearch.setBorder(null);
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnBack)
-                .addGap(132, 132, 132)
-                .addComponent(lblShoes)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtnamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSearch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 21, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnDelete)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnClear))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnCreate)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnUpdate)))
-                                .addGap(74, 74, 74))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblController, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(155, 155, 155)))))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblShoes))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch))
-                        .addGap(26, 26, 26)
-                        .addComponent(lblIdProduk)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNamaProduk)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtnamaProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCategory)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblController)
-                            .addComponent(lblQty))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblHarga))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnCreate)
-                                    .addComponent(btnUpdate))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete)
-                            .addComponent(btnClear)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(183, Short.MAX_VALUE))
-        );
+        txtSearch.setBackground(new java.awt.Color(255, 255, 255));
+        txtSearch.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(0, 0, 0));
+        txtSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 160, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        btnSearch1.setBackground(new java.awt.Color(255, 255, 255));
+        btnSearch1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        btnSearch1.setForeground(new java.awt.Color(0, 0, 0));
+        btnSearch1.setText("SEARCH");
+        btnSearch1.setBorder(null);
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 370, 470));
+
+        lblController.setBackground(new java.awt.Color(255, 255, 255));
+        lblController.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        lblController.setForeground(new java.awt.Color(0, 0, 0));
+        lblController.setText("CONTROLLER");
+        jPanel1.add(lblController, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 170, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -383,7 +381,6 @@ public class ViewProduk extends javax.swing.JFrame {
         nama = txtnamaProduk.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
-
         kategori = cmbProduk.getSelectedItem().toString();
 
         Produk produk = new Produk();
@@ -415,7 +412,6 @@ public class ViewProduk extends javax.swing.JFrame {
         nama = txtnamaProduk.getText();
         quantity = Integer.parseInt(txtQty.getText());
         harga = Double.parseDouble(txtHarga.getText());
-
         kategori = cmbProduk.getSelectedItem().toString();
 
         Produk produk = new Produk();
@@ -496,6 +492,14 @@ public class ViewProduk extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearch1ActionPerformed
+
+    private void cmbProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProdukActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbProdukActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -537,9 +541,11 @@ public class ViewProduk extends javax.swing.JFrame {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbProduk;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblController;
