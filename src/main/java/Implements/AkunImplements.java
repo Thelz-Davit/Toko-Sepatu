@@ -21,7 +21,7 @@ import Service.AkunService;
  * @author DARARI
  */
 public class AkunImplements implements AkunService{
-     private ConnectionManager conMan;
+    private ConnectionManager conMan;
     private Connection conn;
     Statement stmt;
     ResultSet rs;
@@ -33,16 +33,46 @@ public class AkunImplements implements AkunService{
     public Pegawai login(String username, String password) {
        Pegawai pegawai = null;
         Akun akun = null;
-        String sql = "SELECT pw.id, pw.nama, pw.status, "
-                + "ak.id, ak.email, ak.username,ak.password, ak.level "
+        String sql = "SELECT pw.id, pw.nama, pw.status,"
+                + "ak.id_akun,ak.username,ak.password, ak.level "
                 + "FROM pegawai pw, akun ak "
                 + "WHERE pw.id_akun = ak.id_akun "
                 + "AND ak.username = '"+username+"' "
                 + "AND ak.password = '"+password+"'";
-         return null;
+        
+         conMan = new ConnectionManager();
+         conn = conMan.connect();
+       
+         try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while (rs.next()) {
+                pegawai = new Pegawai();
+                pegawai.setIdPegawai(rs.getString("id"));
+                pegawai.setNamaPegawai(rs.getString("nama"));
+                akun = new Akun();
+                akun.setId(rs.getInt("id_akun"));
+                akun.setUsername(rs.getString("username"));
+                akun.setPassword(rs.getString("password"));
+                akun.setLevel(rs.getString("level"));
+                pegawai.setAkun(akun);
+            }
+            conMan.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(AkunImplements.class.getName())
+                    .log(Level.SEVERE, null, ex);
+        }
+        return pegawai;
    
         
      
 }
+
+    @Override
+    public Integer checkLevel(String id) {
+//        "SELECT level FROM akun WHERE id=id";
+        return null;
+    }
 }
 

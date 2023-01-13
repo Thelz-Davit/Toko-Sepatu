@@ -12,6 +12,7 @@ public class Pegawai {
     private String idPegawai;
     private String namaPegawai;
     private boolean Status;
+    private Akun akun;
 
     public Pegawai() {
     }
@@ -45,6 +46,15 @@ public class Pegawai {
     public void setStatus(boolean Status) {
         this.Status = Status;
     }
+
+    public Akun getAkun() {
+        return akun;
+    }
+
+    public void setAkun(Akun akun) {
+        this.akun = akun;
+    }
+    
     
     
 }

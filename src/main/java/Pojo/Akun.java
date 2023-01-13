@@ -4,6 +4,8 @@
  */
 package Pojo;
 
+import java.io.ObjectInputStream;
+
 /**
  *
  * @author Davit
@@ -14,6 +16,7 @@ public class Akun {
     private String username;
     private String password;
     private String level;
+    private boolean loginStatus;
 
     public Akun() {
     }
@@ -57,6 +60,18 @@ public class Akun {
     public void setLevel(String level) {
         this.level = level;
     }
+
+    public boolean isLoginStatus() {
+        return loginStatus;
+    }
+
+   
+    
+    public void setLoginStatus(boolean loginStatus) {
+        this.loginStatus = loginStatus;
+    }
+
+  
     
     
 }
