@@ -15,16 +15,30 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class LoginForm extends javax.swing.JFrame {
-
     AkunService akunService = new AkunImplements();
     Akun akun;
     Pegawai pegawai;
     String username, password;
     boolean login = false;
-
+    /**
+     * Creates new form LoginForm
+     */
     public LoginForm() {
         initComponents();
+        
     }
+    public void showPassword(){
+        if (cbShowPassword.isSelected()) {
+            txtPassword.setEchoChar((char)0);
+            cbShowPassword.setText("Hide Password");
+        }
+        else {
+            txtPassword.setEchoChar('*');
+            cbShowPassword.setText("Show Password");
+        }
+    
+     } 
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,10 +54,12 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        cbShowPassword = new javax.swing.JCheckBox();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -67,25 +83,19 @@ public class LoginForm extends javax.swing.JFrame {
         txtUsername.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(0, 0, 0));
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, 220, 40));
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 260, 40));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Username");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 200, 20));
-
-        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
-        txtPassword.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
-        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 220, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 200, 20));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Password");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 200, 20));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 200, 20));
 
         btnExit.setBackground(new java.awt.Color(0, 0, 0));
         btnExit.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
@@ -98,23 +108,52 @@ public class LoginForm extends javax.swing.JFrame {
         });
         jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, 100, -1));
 
+        btnClear.setBackground(new java.awt.Color(255, 255, 255));
+        btnClear.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(0, 0, 0));
+        btnClear.setText("CLEAR");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 580, 210, -1));
+
+        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogin.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, -1, -1));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 540, 210, -1));
+
+        cbShowPassword.setText("Show Password");
+        cbShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShowPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbShowPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, -1, -1));
+
+        txtPassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtPassword.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(0, 0, 0));
+        txtPassword.setText("jPasswordField1");
+        txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -122,10 +161,15 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clearData();
+    }//GEN-LAST:event_btnClearActionPerformed
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String username, password, level;
+       String username, password, level;
         username = txtUsername.getText();
         password = txtPassword.getText();
 
@@ -135,14 +179,18 @@ public class LoginForm extends javax.swing.JFrame {
             login = true;
             pegawai.setStatus(true);
             JOptionPane.showMessageDialog(null, "Login succesful!");
-//            MainMenu mainMenu = new MainMenu();
-//            mainMenu.setVisible(true);
+
             new ViewTransaksi().setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Username and Password is not correct!");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void cbShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShowPasswordActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cbShowPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,14 +228,24 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JCheckBox cbShowPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+     private void clearData(){
+        txtUsername.setText("");
+        txtPassword.setText("");
+     };
+     
+     
 }
+        

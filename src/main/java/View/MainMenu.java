@@ -1,19 +1,17 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
-import java.awt.Menu;
 
 /**
  *
  * @author User
  */
-public class MainMenu extends javax.swing.JPanel {
+public class MainMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainMenu
+     * Creates new form MainMenuu
      */
     public MainMenu() {
         initComponents();
@@ -28,109 +26,75 @@ public class MainMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnRepor = new javax.swing.JButton();
-        btnTransaction = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        btnProduct = new javax.swing.JButton();
         btnHistory = new javax.swing.JButton();
+        btnRepor = new javax.swing.JButton();
         btnAccount = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
         btnAlert = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 700));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnLogout.setBackground(new java.awt.Color(0, 0, 0));
-        btnLogout.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("LOGOUT");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 30, -1, -1));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("MAIN MENU");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Hello, Have A Nice Day");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("ACCOUNT");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 640, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("TRANSACTION");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("HISTORY");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("REPORT");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("ALERT");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 640, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("SETTINGS");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 640, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 640, -1, -1));
 
-        btnRepor.setBackground(new java.awt.Color(255, 255, 255));
-        btnRepor.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        btnRepor.setForeground(new java.awt.Color(0, 0, 0));
-        btnRepor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        btnRepor.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("ACCOUNT");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 640, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("REPORT");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 360, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Ebrima", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("HISTORY");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, -1, -1));
+
+        btnProduct.setBackground(new java.awt.Color(255, 255, 255));
+        btnProduct.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnProduct.setForeground(new java.awt.Color(0, 0, 0));
+        btnProduct.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporActionPerformed(evt);
+                btnProductActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 200, 250));
-
-        btnTransaction.setBackground(new java.awt.Color(255, 255, 255));
-        btnTransaction.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        btnTransaction.setForeground(new java.awt.Color(0, 0, 0));
-        btnTransaction.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        btnTransaction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransactionActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnTransaction, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 200, 250));
+        jPanel1.add(btnProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 200, 250));
 
         btnHistory.setBackground(new java.awt.Color(255, 255, 255));
         btnHistory.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -141,7 +105,18 @@ public class MainMenu extends javax.swing.JPanel {
                 btnHistoryActionPerformed(evt);
             }
         });
-        jPanel2.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 200, 250));
+        jPanel1.add(btnHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 200, 250));
+
+        btnRepor.setBackground(new java.awt.Color(255, 255, 255));
+        btnRepor.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
+        btnRepor.setForeground(new java.awt.Color(0, 0, 0));
+        btnRepor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnRepor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRepor, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 200, 250));
 
         btnAccount.setBackground(new java.awt.Color(255, 255, 255));
         btnAccount.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -152,7 +127,7 @@ public class MainMenu extends javax.swing.JPanel {
                 btnAccountActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 200, 250));
+        jPanel1.add(btnAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 200, 250));
 
         btnSettings.setBackground(new java.awt.Color(255, 255, 255));
         btnSettings.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -163,7 +138,7 @@ public class MainMenu extends javax.swing.JPanel {
                 btnSettingsActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 200, 250));
+        jPanel1.add(btnSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 200, 250));
 
         btnAlert.setBackground(new java.awt.Color(255, 255, 255));
         btnAlert.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
@@ -174,50 +149,118 @@ public class MainMenu extends javax.swing.JPanel {
                 btnAlertActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 200, 250));
+        jPanel1.add(btnAlert, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 200, 250));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("MAIN MENU");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Hello, Have A Nice Day");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+
+        btnLogout.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogout.setFont(new java.awt.Font("Ebrima", 1, 16)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("LOGOUT");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 30, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTransactionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransactionActionPerformed
+    private void btnProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductActionPerformed
         // TODO add your handling code here:
-        new ViewTransaksi().setVisible(true);
-        
-    }//GEN-LAST:event_btnTransactionActionPerformed
+         new ViewTransaksi().setVisible(true);
+         dispose();
+    }//GEN-LAST:event_btnProductActionPerformed
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnHistoryActionPerformed
 
     private void btnReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporActionPerformed
         // TODO add your handling code here:
+        new Report().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReporActionPerformed
-
-    private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlertActionPerformed
-
-    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSettingsActionPerformed
 
     private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAccountActionPerformed
 
+    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSettingsActionPerformed
+
+    private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
+        // TODO add your handling code here:
+        new ViewProduk().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAlertActionPerformed
+
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        new LoginForm().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainMenu().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccount;
     private javax.swing.JButton btnAlert;
     private javax.swing.JButton btnHistory;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnProduct;
     private javax.swing.JButton btnRepor;
     private javax.swing.JButton btnSettings;
-    private javax.swing.JButton btnTransaction;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -226,6 +269,6 @@ public class MainMenu extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
