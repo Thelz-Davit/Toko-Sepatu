@@ -189,7 +189,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoryActionPerformed
         // TODO add your handling code here:
-        
+        JOptionPane.showMessageDialog(null, "TBD");
     }//GEN-LAST:event_btnHistoryActionPerformed
 
     private void btnReporActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporActionPerformed
@@ -199,7 +199,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "TBD");
+        new viewPegawai().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnAccountActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
